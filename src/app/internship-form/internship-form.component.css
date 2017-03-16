@@ -1,0 +1,72 @@
+h2 {
+    color: mediumvioletred;
+}
+
+form {
+    /*width: 600px;*/
+}
+
+form > div > label {
+    margin-right: 50px;
+}
+
+.user-input::before {
+   content:" ";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    font-family: 'momicons';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    -webkit-font-smoothing: antialiased;
+    speak: none;
+    pointer-events: none;
+}
+
+.error {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 3px;
+    color: white;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: .25px;
+    padding: 4px 6px 5px;
+    margin-bottom: -3px;
+    background-color: #a8252e;
+    visibility: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: 3;
+    -webkit-transform: translate3d(0,-15px,0);
+    -moz-transform: translate3d(0,-15px,0);
+    -ms-transform: translate3d(0,-15px,0);
+    -o-transform: translate3d(0,-15px,0);
+    transform: translate3d(0,-15px,0);
+    -webkit-transition: all 120ms ease;
+    -moz-transition: all 120ms ease;
+    -ms-transition: all 120ms ease;
+    -o-transition: all 120ms ease;
+    transition: all 120ms ease; }
+  .error::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px 5px 0 5px;
+    border-color: #a8252e transparent transparent transparent; }

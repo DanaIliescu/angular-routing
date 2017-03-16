@@ -1,0 +1,109 @@
+      <h2> Create new internship report</h2>
+      
+      <form [formGroup]="internshipForm" 
+        (ngSubmit)="submitInternship(internshipForm)">
+        <div>
+          <label>Initials</label>
+          <div class="user-input">
+          <div *ngIf="internshipForm.controls.initials.hasError('initialsError')" class="error"> 
+          There is a really bad error
+         </div>
+
+        <div *ngIf="!internshipForm.controls['initials'].valid && internshipForm.controls['initials'].touched" class="error">
+          Please fill out the initials
+        </div>
+          <input type="text" placeholder="Initials" id="initials"
+          formControlName="initials">
+        </div>
+        </div>
+      
+
+        <div>
+          <label>Student name</label>
+          <input type="text" placeholder="Student name" id="studentname"
+          formControlName="studentname">                           
+        </div>
+        <div *ngIf="!internshipForm.controls['studentname'].valid && internshipForm.controls['studentname'].touched">
+          Please fill out the student name
+        </div>
+        
+        <!--<div>
+          <label>Visit date</label>
+          <input type="text" placeholder="Visit date" id="datepicker" 
+          formControlname="datepicker" ngmodel required>
+        </div>-->
+        
+        <div>
+          <label>ID of internship agreement</label>
+          <input type="text" placeholder="ID number" id="idNumber"
+          formControlName="idNumber">                           
+        </div>
+        <div *ngIf="internshipForm.controls.idNumber.hasError('idError') && internshipForm.controls.idNumber.touched"> 
+          Min 6 char.
+        </div>
+        <div *ngIf="internshipForm.controls.idNumber.hasError('numberError')"> 
+          Only numbers
+        </div>
+
+        <div>
+          <label>Name of company</label>
+          <input type="text" placeholder="Company Name" id="companyName"
+          formControlName="companyName">                           
+        </div>
+        <div *ngIf="!internshipForm.controls['companyName'].valid && internshipForm.controls['companyName'].touched">
+          Please fill out the name of the company
+        </div>
+
+        <div>
+          <label>Name(s) of the persons you met at the company</label>
+          <input type="text" placeholder="Names" id="names"
+          formControlName="names">                           
+        </div>
+        <div *ngIf="!internshipForm.controls['names'].valid && internshipForm.controls['names'].touched">
+          Please fill out the name(s) of the persons you met at the company
+        </div>
+
+        <div>
+          <label>Company's thoughts on market trends</label>
+          <textarea type="text" placeholder="Write company's thoughts here" id="thoughts"
+          formControlName="thoughts"></textarea>                           
+        </div>
+
+        <div>
+          <label>Company's competence needs</label>
+          <textarea type="text" placeholder="Write company's competence needs here" id="needs"
+          formControlName="needs"></textarea>                           
+        </div>
+        
+        <!--max 1000 char.-->
+        <div>
+          <label>Students's competencies</label>
+          <textarea type="text" placeholder="Write students's competencies here" id="studentCompetencies"
+          formControlName="studentCompetencies"></textarea>                           
+        </div>
+
+        <!--max 1000 char.-->
+        <div>
+          <label>Cooperation opportunities with company</label> 
+          <textarea type="text" placeholder="Write cooperation opportunities with company here" id="opportunities"
+          formControlName="opportunities"></textarea>                           
+        </div>
+
+        <!--max 1000 char.-->
+        <div>
+          <label>Miscellaneous</label> 
+          <textarea type="text" id="miscellaneous"
+          formControlName="miscellaneous"></textarea>                           
+        </div>
+
+        <div>
+          <label>The company is suitable for internship</label>
+          <input type="text" placeholder="Write if you agree with the statement" id="suitable"
+          formControlName="suitable">                           
+        </div>
+        <div *ngIf="!internshipForm.controls['suitable'].valid && internshipForm.controls['suitable'].touched">
+          Please fill out if the company is suitable for internship
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>

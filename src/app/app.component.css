@@ -1,0 +1,16 @@
+ul {
+  display: inline; }
+  ul li {
+    display: inline;
+    margin: 2vw; }
+  ul a {
+    font-family: 'Helvetica', Arial, open-sans;
+    color: #FFF;
+    text-decoration: none; }
+
+span {
+  background-color: #323232;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
