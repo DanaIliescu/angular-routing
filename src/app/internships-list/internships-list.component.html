@@ -1,3 +1,5 @@
-<p>
-  internships-list works!
-</p>
+<h3>All Reports</h3>
+<ul>
+  <li *ngFor="let internshipForm of reports">{{internshipForm._id}}</li>
+</ul>
+<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

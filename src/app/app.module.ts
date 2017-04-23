@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { InternshipFormComponent } from './internship-form/internship-form.component';
+import { ReportsService } from './internship-form/internship-form.service';
 import { HomeComponent } from './home/home.component';
 import { InternshipsComponent } from './internships/internships.component';
 import { AboutComponent } from './about/about.component';
@@ -16,12 +17,12 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'internships', component: InternshipsComponent,
     children: [
-      {path: 'internships-list', component: InternshipsListComponent},
-      {path: 'new-report', component: InternshipFormComponent},      
-    ]  
+      {path: 'all-reports', component: InternshipsListComponent},
+      {path: 'new-report', component: InternshipFormComponent},
+    ]
   },
   { path: 'about', component: AboutComponent },
-  { path: 'myDreams', component: MyDreamsComponent },  
+  { path: 'myDreams', component: MyDreamsComponent },
 
   { path: '',
     redirectTo: 'home',
@@ -44,10 +45,11 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ReportsService, InternshipsListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,109 +1,113 @@
       <h2> Create new internship report</h2>
-      
-      <form [formGroup]="internshipForm" 
-        (ngSubmit)="submitInternship(internshipForm)">
-        <div>
-          <label>Initials</label>
-          <div class="user-input">
-          <div *ngIf="internshipForm.controls.initials.hasError('initialsError')" class="error"> 
-          There is a really bad error
-         </div>
 
-        <div *ngIf="!internshipForm.controls['initials'].valid && internshipForm.controls['initials'].touched" class="error">
+      <form [formGroup]="internshipForm"
+        (ngSubmit)="submitInternship(internshipForm)">
+        <div class="form-group">
+          <label>Initials*</label>
+          <input type="text" placeholder="Initials" id="initials"
+          formControlName="initials" class="form-control">
+        </div>
+        <div *ngIf="!internshipForm.controls['initials'].valid && internshipForm.controls['initials'].touched" class="alert alert-danger">
           Please fill out the initials
         </div>
-          <input type="text" placeholder="Initials" id="initials"
-          formControlName="initials">
+        <div *ngIf="internshipForm.controls['initials'].hasError('initialsError')" class="alert alert-danger">
+          There is a really bad error
         </div>
-        </div>
-      
 
-        <div>
+
+        <div class="form-group">
           <label>Student name</label>
-          <input type="text" placeholder="Student name" id="studentname"
-          formControlName="studentname">                           
+          <input type="text" placeholder="Student name" id="studentname" class="form-control"
+          formControlName="studentname">
         </div>
-        <div *ngIf="!internshipForm.controls['studentname'].valid && internshipForm.controls['studentname'].touched">
-          Please fill out the student name
+        <div *ngIf="!internshipForm.controls['studentname'].valid && internshipForm.controls['studentname'].touched" class="alert alert-danger">
+            Please fill out the student name
         </div>
-        
+
         <!--<div>
           <label>Visit date</label>
-          <input type="text" placeholder="Visit date" id="datepicker" 
+          <input type="text" placeholder="Visit date" id="datepicker"
           formControlname="datepicker" ngmodel required>
         </div>-->
-        
-        <div>
+
+        <div class="form-group">
           <label>ID of internship agreement</label>
-          <input type="text" placeholder="ID number" id="idNumber"
-          formControlName="idNumber">                           
+          <input type="text" placeholder="ID number" id="idNumber" class="form-control"
+            formControlName="idNumber">
         </div>
-        <div *ngIf="internshipForm.controls.idNumber.hasError('idError') && internshipForm.controls.idNumber.touched"> 
+        <div *ngIf="internshipForm.controls['idNumber'].hasError('idError') && internshipForm.controls['idNumber'].touched" class="alert alert-danger">
           Min 6 char.
         </div>
-        <div *ngIf="internshipForm.controls.idNumber.hasError('numberError')"> 
-          Only numbers
+        <div *ngIf="internshipForm.controls['idNumber'].hasError('numberError')" class="alert alert-danger">
+            Only numbers
+        </div>
+        <div *ngIf="!internshipForm.controls['idNumber'].valid && internshipForm.controls['idNumber'].touched" class="alert alert-danger">
+            Please fill out internship agreement ID
         </div>
 
-        <div>
+
+        <div class="form-group">
           <label>Name of company</label>
-          <input type="text" placeholder="Company Name" id="companyName"
-          formControlName="companyName">                           
+          <input type="text" placeholder="Company Name" id="companyName" class="form-control"
+          formControlName="companyName">
         </div>
-        <div *ngIf="!internshipForm.controls['companyName'].valid && internshipForm.controls['companyName'].touched">
-          Please fill out the name of the company
+        <div *ngIf="!internshipForm.controls['companyName'].valid && internshipForm.controls['companyName'].touched" class="alert alert-danger">
+            Please fill out the name of the company
         </div>
 
-        <div>
+
+        <div class="form-group">
           <label>Name(s) of the persons you met at the company</label>
-          <input type="text" placeholder="Names" id="names"
-          formControlName="names">                           
+          <input type="text" placeholder="Names" id="names" class="form-control"
+          formControlName="names">
         </div>
-        <div *ngIf="!internshipForm.controls['names'].valid && internshipForm.controls['names'].touched">
-          Please fill out the name(s) of the persons you met at the company
+        <div *ngIf="!internshipForm.controls['names'].valid && internshipForm.controls['names'].touched" class="alert alert-danger">
+            Please fill out the name(s) of the persons you met at the company
         </div>
 
-        <div>
+
+        <div class="form-group">
           <label>Company's thoughts on market trends</label>
-          <textarea type="text" placeholder="Write company's thoughts here" id="thoughts"
-          formControlName="thoughts"></textarea>                           
+          <textarea type="text" placeholder="Write company's thoughts here" id="thoughts" class="form-control"
+          formControlName="thoughts"></textarea>
         </div>
 
-        <div>
+        <div class="form-group">
           <label>Company's competence needs</label>
-          <textarea type="text" placeholder="Write company's competence needs here" id="needs"
-          formControlName="needs"></textarea>                           
+          <textarea type="text" placeholder="Write company's competence needs" id="needs" class="form-control"
+          formControlName="needs"></textarea>
         </div>
-        
+
         <!--max 1000 char.-->
-        <div>
+        <div class="form-group">
           <label>Students's competencies</label>
-          <textarea type="text" placeholder="Write students's competencies here" id="studentCompetencies"
-          formControlName="studentCompetencies"></textarea>                           
+          <textarea type="text" placeholder="Write students's competencies here" id="studentCompetencies" class="form-control"
+          formControlName="studentCompetencies"></textarea>
         </div>
 
         <!--max 1000 char.-->
-        <div>
-          <label>Cooperation opportunities with company</label> 
-          <textarea type="text" placeholder="Write cooperation opportunities with company here" id="opportunities"
-          formControlName="opportunities"></textarea>                           
+        <div class="form-group">
+          <label>Cooperation opportunities with company</label>
+          <textarea type="text" placeholder="Write cooperation opportunities with company" id="opportunities" class="form-control"
+          formControlName="opportunities"></textarea>
         </div>
 
         <!--max 1000 char.-->
-        <div>
-          <label>Miscellaneous</label> 
-          <textarea type="text" id="miscellaneous"
-          formControlName="miscellaneous"></textarea>                           
+        <div class="form-group">
+          <label>Miscellaneous</label>
+          <textarea type="text" id="miscellaneous" class="form-control"
+          formControlName="miscellaneous"></textarea>
         </div>
 
-        <div>
+        <div class="form-group">
           <label>The company is suitable for internship</label>
-          <input type="text" placeholder="Write if you agree with the statement" id="suitable"
-          formControlName="suitable">                           
+          <input type="text" placeholder="Write if you agree" id="suitable" class="form-control"
+          formControlName="suitable">
         </div>
-        <div *ngIf="!internshipForm.controls['suitable'].valid && internshipForm.controls['suitable'].touched">
-          Please fill out if the company is suitable for internship
+        <div *ngIf="!internshipForm.controls['suitable'].valid && internshipForm.controls['suitable'].touched" class="alert alert-danger">
+            Please fill out if the company is suitable for internship
         </div>
 
-        <button type="submit">Submit</button>
+
+        <button type="submit" id="sb" (click)="internshipForm.reset()" [disabled]="!internshipForm.valid" class="btn btn-success">Submit</button>
       </form>
