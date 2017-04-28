@@ -1,5 +1,5 @@
 <h3>All Reports</h3>
 <ul>
-  <li *ngFor="let internshipForm of reports">{{internshipForm._id}}</li>
+  <li *ngFor="let internshipForm of reports">{{internshipForm._id}} <button (click)="deleteReport(internshipForm)">Delete</button></li>
 </ul>
 <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

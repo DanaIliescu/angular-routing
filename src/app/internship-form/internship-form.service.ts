@@ -55,4 +55,13 @@ export class ReportsService {
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  delete(report: InternshipFormComponent, id: Number){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    console.log("deleted from service");
+    return this.http.post(this.reportsUrl + 'delete/' + id, { report }, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
 }

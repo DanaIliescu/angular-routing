@@ -34,4 +34,15 @@ export class InternshipsListComponent implements OnInit {
                      internship  => this.reports.push(internship),
                      error =>  this.errorMessage = <any>error);
   }
+
+  deleteReport(report: any) {
+    var internshipForm = report.data;
+    console.log(internshipForm);
+    var reportIndex = this.reports.indexOf(internshipForm);
+    this.reportService.delete(report, report._id)
+                    .subscribe(
+                      internship => this.reports.splice(reportIndex, 1),
+                      error => this.errorMessage = <any>error
+                    );
+  }
 }
